@@ -1,0 +1,39 @@
+body{
+    background-color: rgb(94, 228, 238);
+}
+
+.choose ul {
+    margin: 8px -8px;
+    /* display: flex; */
+    background: rgba(255, 18, 57, 0.668);
+    border:6px solid rgb(0, 255, 221);
+    display: flex;
+}
+
+.choose ul li {
+    list-style: none;
+    width: 1500px;
+    /* margin-bottom: -70px; */
+}
+
+
+.choose ul li a {
+    display: block;
+    padding: 131px;
+    text-align: center;
+    color: rgb(29, 2, 22);
+    transition: 0.5s;
+    text-decoration: none;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+/* #su {
+    margin-left: 300px;
+} */
+
+/* .choose_vl {
+    margin-top: 5px;
+    height: 30px;
+    border: 1px solid black;
+} */

@@ -1,0 +1,40 @@
+.header {
+    margin: -8px;
+    background: pink;
+    display:flex;
+  }
+.left {
+    float:left;
+    padding: 10px;
+    padding-left: 100px;
+    width: 700px;
+    display: flex;
+}
+
+.left img {
+    border-radius: 50%;
+}
+
+.left h1 {
+    margin: 5px 15px
+}
+
+.right {
+    float: right;
+    padding: 10px;
+    padding-left: 300px;
+    display: flex;
+  }
+
+.right img {
+    border-radius: 50%;
+}
+
+.right h2 {
+    margin: 10px 15px
+}
+
+.right ul {
+    border: 1px solid black;
+    border-radius:15px;
+}

@@ -1,0 +1,100 @@
+START
+FUNCTION donation
+    Pass In: Nothing
+    DECLARE userID, name, age, body, species, color, condition, gender, vaccinated, dewormed, spayed, description, imageName, imageSize, tmpName
+    PROMPT userID, name, age, body, species, color, condition, gender, vaccinated, dewormed, spayed, description, imageName, imageSize, tmpName
+    READ userID, name, age, body, species, color, condition, gender, vaccinated, dewormed, spayed, description, imageName, imageSize, tmpName
+    OPENFILE pets.sql AND donor.sql FOR APPEND
+    WRITEFILE pets.sql AND donor.sql
+    IF (INPUTS is not empty)
+        THEN SET userID, name, age, body, species, color, condition, gender, vaccinated, dewormed, spayed, description, imageName, imageSize, tmpName
+        INSERT INTO pets.sql (userID, name, age, body, species, color, condition, gender, vaccinated, dewormed, spayed, description, imageName, imageSize, tmpName)
+        SET petID = the ID of latest pet added into the pet.sql
+        SET date = current date and time in GMT + 8
+        INSERT INTO donor.sql (userID, petID, date)
+        GO BACK TO donor.php?donate=1
+    ENDIF
+    CLOSEFILE pets.sql AND donor.sql
+    Pass Out: Nothing
+ENDFUNCTION
+END
+
+
+START
+FUNCTION editpet
+    Pass In: petID (get from url)
+    DECLARE userID, name, age, body, species, color, condition, gender, vaccinated, dewormed, spayed, description, imageName, imageSize, tmpName
+    READ userID, name, age, body, species, color, condition, gender, vaccinated, dewormed, spayed, description, imageName, imageSize, tmpName
+    OPENFILE pets.sql FOR READ
+    READFILE pets.sql
+    DISPLAY name, age, body, species, color, condition, gender, vaccinated, dewormed, spayed, description, imageName, imageSize, tmpName
+    CLOSEFILE pets.sql
+    IF (imageName is not empty)
+        THEN OPENFILE pets.sql FOR WRITE
+        WRITEFILE pets.sql
+        UPDATE pets.sql WHERE petID (name, age, body, species, color, condition, gender, vaccinated, dewormed, spayed, description, imageName)
+        CLOSEFILE pets.sql
+        move_uploaded_file(tmpName, '../img/' . imageName)
+        GO BACK TO donor.php?donate=4
+    ELSE
+        THEN OPENFILE pets.sql FOR WRITE
+        WRITEFILE pets.sql
+        UPDATE pets.sql WHERE petID (name, age, body, species, color, condition, gender, vaccinated, dewormed, spayed, description)
+        CLOSEFILE pets.sql
+        GO BACK TO donor.php?donate=4
+    ENDIF
+    Pass Out: Nothing
+ENDFUNCTION
+END
+
+
+START
+FUNCTION deletepet
+    Pass In: petID
+    IF (petID is not empty)
+        THEN OPENFILE pets.sql AND donor.sql FOR WRITE
+        DELETE petID FROM pets.sql
+        DELETE petID FROm donor.sql
+        CLOSEFILE pets.sql AND donor.sql
+    ENDIF
+    Pass Out: Nothing
+ENDFUNCTION
+END
+
+
+START
+FUNCTION donorApprove
+    Pass In: petID
+    DECLARE date, adopterID
+    SET date = current date and time in GMT + 8
+    OPENFILE pets.sql FOR WRITE
+    WRITEFILE pets.sql 
+    UPDATE pets.sql WHERE petID (SET `PetStatus` = 'Adopted')
+    CLOSEFILE pets.sql
+
+    OPENFILE pets.sql FOR READ 
+    READFILE pets.sql
+    SET adopterID = the adopterID in the pets.sql that match the petID
+    CLOSEFILE pets.sql
+
+    OPENFILE adopter.sql FOR WRITE
+    WRITEFILE adopter.sql
+    INSERT INTO adopter.sql (adopterID, petID, date, 'Unread')
+    CLOSEFILE adopter.sql
+    GO BACK TO donor.php?donate=2
+    Pass Out: Nothing
+ENDFUNCTION
+END
+
+
+START
+FUNCTION donorDecline
+    Pass In: petID
+    OPENFILE pets.sql
+    WRITEFILE pets.sql
+    UPDATE pets.sql WHERE petID (SET `PetStatus` = 'Available', `AdopterID` = '0')
+    CLOSEFILE pets.sql
+    GO BACK TO donor.php?donate=3
+    Pass Out: Nothing
+ENDFUNCTION
+END

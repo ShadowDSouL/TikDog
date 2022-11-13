@@ -1,0 +1,150 @@
+nav{
+    padding-left: 25%;
+    font-size: 18px;
+    font-family: 'Segoe UI Variable', Tahoma, Geneva, Verdana, sans-serif;
+ }
+.logo{
+    padding-left: 22%;
+    margin: 0 auto;
+    float: left;
+}
+.logo img{
+    width: 50px;
+    height: auto;
+    text-decoration: none;
+    padding-top: 20px;
+}
+body {
+    margin: 0 auto;
+    padding: 0;
+    font-family: sans-serif;
+    
+}
+.content
+{
+    height: 700px;
+    text-align: center;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-size: cover;
+    /* background-image: url(); */
+    /* background: rgba(255, 192, 203, 0.668); */
+}
+.box1 {
+    width: 300px;   
+    padding: 20px 40px;
+    position: absolute;
+    top: 350px;
+    left: 50%; 
+    transform: translate(-50%,-50%);
+    background: rgba(0, 0, 0, 0.753);
+    text-align: center;
+    border-radius: 20px;
+}
+.box1 h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.box1 input[type = "text"], .box1 input[type = "password"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border:2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+.box1 input[type = "text"]:focus, .box1 input[type = "password"]:focus{
+    width: 280px;
+    border-color: #2ecc71;
+}
+.box1 input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border:2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.box1 input[type = "submit"]:hover {
+    background: #2ecc71;
+}
+.form-control1 {
+    /* margin-bottom: 10px;
+    padding-bottom: 20px; */
+    position: relative;
+    
+}
+.form-control1 label{
+    display: inline-block;
+    /* margin-bottom: 5px; */
+}
+.form-control1 i{
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    visibility: hidden;
+}
+.form-control1 small{
+    visibility: hidden;
+    position: absolute;
+    top: 62px;
+    bottom: 0;
+    left: 70px;
+}
+.form-control1.success input{
+    border-color: #2ecc71;
+}
+.form-control1.success i.fa-check-circle{
+    visibility: visible;
+    color: #2ecc71;
+}
+.form-control1.error input {
+    border-color: #e74c3c;
+    
+}
+.form-control1.error.shake {
+    animation: shake 0.3s ease-in-out infinite;
+}
+.form-control1.error i.fa-exclamation-circle{
+    visibility: visible;
+    color: #e74c3c;
+}
+.form-control1.error small{
+    visibility: visible;
+    color: #e74c3c;
+}
+@keyframes shake {
+    0%, 100%{
+        margin-left: 0;
+    }
+    20%, 80%{
+        margin-left: -12px;
+    }
+    40%, 60%{
+        margin-left: 12px;
+    }
+}
+.signup-link{
+    color: white;
+}
+.signup-link a{
+    color: #fa4299;
+    text-decoration: none;
+}
+.signup-link a:hover {
+    text-decoration: underline;
+}

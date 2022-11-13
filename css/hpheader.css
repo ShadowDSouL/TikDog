@@ -1,0 +1,56 @@
+.header {
+    padding: 10px;
+    padding-left: 100px;
+    margin: -8px;
+    background: pink;
+    display:flex
+  }
+
+.header img {
+    border-radius: 50%;
+}
+
+.header h1 {
+    margin: 5px 15px
+}
+
+
+.nav ul {
+    margin: 8px -8px;
+    display: flex;
+    background: rgba(255, 192, 203, 0.668);
+}
+
+.nav ul li {
+    list-style: none;
+    width: 170px;
+}
+
+.nav ul li.active{
+    background: rgb(240, 135, 152);
+}
+
+.nav ul li a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.686);
+    transition: 0.5s;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.nav ul li a:hover, .nav ul li a:active{
+    color: black;
+}
+
+#su {
+    margin-left: 300px;
+}
+
+.nav_vl {
+    margin-top: 5px;
+    height: 30px;
+    border: 1px solid black;
+}

@@ -1,0 +1,96 @@
+html, body{
+    margin: auto;
+    width: auto;
+}
+
+
+.content{
+    padding-left: 40px;
+    float: left;
+    width: 550px;   
+}
+
+.function{
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+
+}
+.function:hover{
+    text-decoration:solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10%;
+}
+.function a{
+    padding: 15px;
+}
+.function img{
+    width:150px;
+    border-radius: 10%;
+}
+.function p{
+    font-style: italic;
+}
+
+.content2{
+    padding-left: 50px;
+    display: inline-block;
+    width: 750px;
+    padding-top: 50px;
+}
+.content2 .picture{
+    display: inline-block;
+    width: 700px;
+    z-index: -1; 
+} 
+.content2 .picture img{
+    width: 700px;
+    height: 250px;
+    border-radius: 10px;
+    border: 2px solid rgb(123, 29, 29);
+}
+
+.wrapper{
+    z-index: -1; 
+    width: 700px;
+}
+
+.petnum1{
+    float: left;
+    border: 2px solid rgb(129, 127, 127);
+    width: 340px;
+    height: 100px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow:  0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.petnum2{
+    border: 2px solid rgb(129, 127, 127);
+    float: right;
+    margin-top: 10px;
+    width: 340px;
+    height:100px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow:  0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}  
+
+
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    color: black;
+    background-color: rgba(0, 0, 0, 0.288);
+    border: black;
+}
+
+a i {
+    transition: all 0.3s linear;
+}
+
+a:hover i {
+    transform: scale(1.5);
+}
